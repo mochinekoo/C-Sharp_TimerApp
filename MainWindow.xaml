@@ -35,7 +35,7 @@
 
         <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding TimerText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" />
         <Button Grid.Row="3" Grid.Column="0" Content="スタート" VerticalAlignment="Bottom" Command="{Binding ButtonCommand.StartCommand}"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="ストップ" VerticalAlignment="Bottom" Command="{Binding ButtonCommand.ButtonClickCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="ストップ" VerticalAlignment="Bottom" Command="{Binding ButtonCommand.StopCommand}"/>
 
     </Grid>
 </Window>

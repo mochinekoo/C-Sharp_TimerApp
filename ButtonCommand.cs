@@ -13,16 +13,24 @@ namespace Timer_WPFApplication
         private readonly MainViewModel mainViewModel_;
 
         public ICommand StartCommand { get; private set; }
+        public ICommand StopCommand {  get; private set; }
 
         public ButtonCommand(MainViewModel mainViewModel)
         {
             mainViewModel_ = mainViewModel;
             StartCommand = new BaseCommand(RunStartCommand);
+            StopCommand = new BaseCommand(RunStopCommand);
+
         }
 
         private void RunStartCommand()
         {
             mainViewModel_.status = TimerStatus.RUNNING;
+        }
+
+        private void RunStopCommand()
+        {
+            mainViewModel_.status = TimerStatus.SLEEPING;
         }
 
     }
