@@ -21,7 +21,7 @@
 
         <Menu Grid.Row="0">
             <MenuItem Header="ファイル">
-                <MenuItem Header="閉じる" />
+                <MenuItem Header="閉じる" Command="{Binding MenuClickCommand.ExitCommand}"/>
             </MenuItem>
             <MenuItem Header="ヘルプ">
                 <MenuItem Header="このソフトについて" />

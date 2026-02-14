@@ -16,9 +16,11 @@ namespace Timer_WPFApplication
         public MainViewModel()
         {
             ButtonCommand = new ButtonCommand(this);
+            MenuClickCommand = new MenuClickCommand(this);
         }
 
         public ButtonCommand ButtonCommand { get; set; }
+        public MenuClickCommand MenuClickCommand { get; set; }
 
         private int selectIndex_ = 0;
         public int SelectIndex
