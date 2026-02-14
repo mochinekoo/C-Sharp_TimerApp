@@ -12,8 +12,10 @@ namespace Timer_WPFApplication
 
         public MainViewModel()
         {
-
+            ButtonCommand = new ButtonCommand(this);
         }
+
+        public ButtonCommand ButtonCommand { get; set; }
 
         private int selectIndex_ = 0;
         public int SelectIndex
@@ -24,6 +26,17 @@ namespace Timer_WPFApplication
                 selectIndex_ = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectIndex)));
 
+            }
+        }
+
+        private string timerText_ = "";
+        public string TimerText
+        {
+            get { return timerText_; }
+            set
+            {
+                timerText_ = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TimerText)));
             }
         }
     }

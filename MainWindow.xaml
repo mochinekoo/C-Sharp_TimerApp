@@ -33,9 +33,9 @@
             <TabItem Header="カウントアップ"/>
         </TabControl>
 
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="00:00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" />
-        <Button Grid.Row="3" Grid.Column="0" Content="スタート" VerticalAlignment="Bottom"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="ストップ" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding TimerText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" />
+        <Button Grid.Row="3" Grid.Column="0" Content="スタート" VerticalAlignment="Bottom" Command="{Binding ButtonCommand.ButtonClickCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="ストップ" VerticalAlignment="Bottom" Command="{Binding ButtonCommand.ButtonClickCommand}"/>
 
     </Grid>
 </Window>
