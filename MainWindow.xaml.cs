@@ -24,14 +24,21 @@ namespace Timer_WPFApplication
 
             TimerCallback callback = state =>
             {
-                if (mainViewModel.status == TimerStatus.RUNNING)
+                if (mainViewModel.status == TimerStatus.SLEEPING) return;
+
+                if (mainViewModel.SelectIndex == 0)
+                {
+                    mainViewModel.count--;
+                }
+                else if (mainViewModel.SelectIndex == 1)
                 {
                     mainViewModel.count++;
-                    Dispatcher.Invoke(() =>
-                    {
-                        mainViewModel.TimerText = mainViewModel.count.ToString();
-                    });
-                }               
+                }
+                    
+                Dispatcher.Invoke(() =>
+                {
+                    mainViewModel.TimerText = mainViewModel.count.ToString();
+                });
             };
             mainViewModel.timer = new Timer(callback, null, 0, 1000);
         }
