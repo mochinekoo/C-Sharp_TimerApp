@@ -9,6 +9,9 @@ namespace Timer_WPFApplication
     class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+        public Timer timer;
+        public int count = 0;
+        public TimerStatus status = TimerStatus.SLEEPING;
 
         public MainViewModel()
         {
@@ -39,5 +42,11 @@ namespace Timer_WPFApplication
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TimerText)));
             }
         }
+    }
+
+    enum TimerStatus
+    {
+        RUNNING,
+        SLEEPING
     }
 }

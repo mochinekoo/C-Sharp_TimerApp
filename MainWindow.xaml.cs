@@ -20,6 +20,20 @@ namespace Timer_WPFApplication
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+            MainViewModel mainViewModel = (MainViewModel) DataContext;
+
+            TimerCallback callback = state =>
+            {
+                if (mainViewModel.status == TimerStatus.RUNNING)
+                {
+                    mainViewModel.count++;
+                    Dispatcher.Invoke(() =>
+                    {
+                        mainViewModel.TimerText = mainViewModel.count.ToString();
+                    });
+                }               
+            };
+            mainViewModel.timer = new Timer(callback, null, 0, 1000);
         }
     }
 }
