@@ -9,12 +9,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/> <!--メニュー-->
+            <RowDefinition Height="Auto"/> <!--タブ-->
+            <RowDefinition Height="*"/> <!--テキスト-->
+            <RowDefinition Height="Auto"/> <!--ボタン-->
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0">
@@ -26,12 +28,14 @@
             </MenuItem>
         </Menu>
 
-        <TabControl Grid.Row="1">
-            <TabItem Header="カウントダウン">
-            </TabItem>
-            <TabItem Header="カウントアップ">
-            </TabItem>
+        <TabControl Grid.Row="1" Grid.ColumnSpan="2">
+            <TabItem Header="カウントダウン"/>
+            <TabItem Header="カウントアップ"/>
         </TabControl>
+
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="00:00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" />
+        <Button Grid.Row="3" Grid.Column="0" Content="スタート" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="ストップ" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
