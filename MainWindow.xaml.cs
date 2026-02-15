@@ -1,3 +1,4 @@
+using CommunityToolkit.WinUI.Notifications;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,8 +30,15 @@ namespace Timer_WPFApplication
                     if (mainViewModel.status == TimerStatus.SLEEPING) return;
 
                     if (mainViewModel.SelectIndex == 0) {
-                        if (mainViewModel.count - 1 < 0) return;
-                        mainViewModel.count--;
+                        if (mainViewModel.count - 1 < 0) {
+                            new ToastContentBuilder()
+                                .AddText("タイマーが終了したよ")
+                                .Show();
+                            mainViewModel.timer.Dispose();
+                        }
+                        else {
+                            mainViewModel.count--;
+                        }                           
                     }
                     else if (mainViewModel.SelectIndex == 1) {
                         mainViewModel.count++;
