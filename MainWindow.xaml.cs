@@ -22,6 +22,7 @@ namespace Timer_WPFApplication
             InitializeComponent();
             DataContext = new MainViewModel();
             MainViewModel mainViewModel = (MainViewModel) DataContext;
+            mainViewModel.TimerText = "00:00:00";
 
             TimerCallback callback = state =>
             {                    
