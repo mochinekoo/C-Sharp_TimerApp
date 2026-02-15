@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,21 +23,24 @@ namespace Timer_WPFApplication
             MainViewModel mainViewModel = (MainViewModel) DataContext;
 
             TimerCallback callback = state =>
-            {
-                if (mainViewModel.status == TimerStatus.SLEEPING) return;
-
-                if (mainViewModel.SelectIndex == 0)
-                {
-                    mainViewModel.count--;
-                }
-                else if (mainViewModel.SelectIndex == 1)
-                {
-                    mainViewModel.count++;
-                }
-                    
+            {                    
                 Dispatcher.Invoke(() =>
                 {
-                    mainViewModel.TimerText = mainViewModel.count.ToString();
+                    if (mainViewModel.status == TimerStatus.SLEEPING) return;
+
+                    if (mainViewModel.SelectIndex == 0) {
+                        if (mainViewModel.count - 1 < 0) return;
+                        mainViewModel.count--;
+                    }
+                    else if (mainViewModel.SelectIndex == 1) {
+                        mainViewModel.count++;
+                    }
+
+                    //mainViewModel.TimerText = mainViewModel.count.ToString();
+
+                    TimeSpan timeSpan = TimeSpan.FromSeconds(Math.Max(0, mainViewModel.count));
+                    mainViewModel.TimerText = timeSpan.ToString(@"hh\:mm\:ss");
+
                 });
             };
             mainViewModel.timer = new Timer(callback, null, 0, 1000);

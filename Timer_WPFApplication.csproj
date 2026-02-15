@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="K:\Timer_WPFApplication\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="K:\Timer_WPFApplication\.editorconfig" />
+  </ItemGroup>
+
 </Project>
