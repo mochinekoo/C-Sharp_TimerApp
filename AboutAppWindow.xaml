@@ -1,0 +1,26 @@
+﻿<Window x:Class="Timer_WPFApplication.AboutAppWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Timer_WPFApplication"
+        mc:Ignorable="d"
+        Title="AboutAppWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="タイマーアプリ（C#版）" Margin="10,10,0,0" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Grid.Row="1" Margin="10,10,0,0" FontSize="20">
+            制作者：mochineko<LineBreak/>
+            GitHub: <Hyperlink NavigateUri="https://github.com/mochinekoo/C-Sharp_TimerApp" RequestNavigate="OnAboutMenuClick">https://github.com/mochinekoo/C-Sharp_TimerApp</Hyperlink> <LineBreak/>
+        </TextBlock>
+
+    </Grid>
+</Window>

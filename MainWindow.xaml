@@ -24,7 +24,7 @@
                 <MenuItem Header="閉じる" Command="{Binding MenuClickCommand.ExitCommand}"/>
             </MenuItem>
             <MenuItem Header="ヘルプ">
-                <MenuItem Header="このソフトについて" />
+                <MenuItem Header="このソフトについて" Command="{Binding MenuClickCommand.AboutCommand}"/>
             </MenuItem>
         </Menu>
 
