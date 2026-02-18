@@ -24,35 +24,6 @@ namespace Timer_WPFApplication
             MainViewModel mainViewModel = (MainViewModel) DataContext;
             mainViewModel.TimerText = "00:00:00";
 
-            TimerCallback callback = state =>
-            {                    
-                Dispatcher.Invoke(() =>
-                {
-                    if (mainViewModel.status == TimerStatus.SLEEPING) return;
-
-                    if (mainViewModel.SelectIndex == 0) {
-                        if (mainViewModel.count - 1 < 0) {
-                            new ToastContentBuilder()
-                                .AddText("タイマーが終了したよ")
-                                .Show();
-                            mainViewModel.timer.Dispose();
-                        }
-                        else {
-                            mainViewModel.count--;
-                        }                           
-                    }
-                    else if (mainViewModel.SelectIndex == 1) {
-                        mainViewModel.count++;
-                    }
-
-                    //mainViewModel.TimerText = mainViewModel.count.ToString();
-
-                    TimeSpan timeSpan = TimeSpan.FromSeconds(Math.Max(0, mainViewModel.count));
-                    mainViewModel.TimerText = timeSpan.ToString(@"hh\:mm\:ss");
-
-                });
-            };
-            mainViewModel.timer = new Timer(callback, null, 0, 1000);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -9,8 +9,6 @@ namespace Timer_WPFApplication
     class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        public Timer timer;
-        public int count = 0;
         public TimerStatus status = TimerStatus.SLEEPING;
 
         public MainViewModel()

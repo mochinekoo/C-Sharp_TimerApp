@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +25,9 @@ namespace Timer_WPFApplication
 
         private void RunStartCommand()
         {
+            if (!TimerManager.Instance.isRunning) {
+                TimerManager.Instance.startTimer();
+            }
             mainViewModel_.status = TimerStatus.RUNNING;
         }
 
